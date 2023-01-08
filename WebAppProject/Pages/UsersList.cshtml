@@ -1,0 +1,49 @@
+﻿@page
+@model WebAppProject.Pages.UsersListModel
+@{
+}
+
+<h2 class="text-center">Lista graczy</h2>
+<br />
+<table class="table table-bordered">
+	<thead class="table-primary">
+		<tr>
+			<th class="text-center">
+				Email
+			</th>
+			<th class="text-center">
+				Data rejestracji
+			</th>
+			<th class="text-center">
+				Ostatnie logowanie
+			</th>
+			<th class="text-center">
+				Czas spędzony w grze
+			</th>
+			<th class="text-center">
+				Debug request
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(var user in Model.UserInfo){
+			<tr>
+				<td>
+					@user.Email
+				</td>
+				<td>
+					@user.RegisterDate
+				</td>
+				<td>
+					@user.LastLogin
+				</td>
+				<td>
+					@user.InGameTime
+				</td>
+				<td>
+					@user.DebugRequest
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

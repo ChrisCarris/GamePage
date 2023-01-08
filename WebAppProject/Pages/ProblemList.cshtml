@@ -1,0 +1,40 @@
+﻿@page
+@model WebAppProject.Pages.ProblemListModel
+@{
+	ViewData["Title"] = "Lista problemów";
+}
+<h2 class="text-center">Lista zgłoszonych problemów</h2>
+<br />
+<table class="table table-bordered">
+	<thead class="table-primary">
+		<tr>
+			<th class="text-center">
+				Nick zgłaszającego
+			</th>
+			<th class="text-center">
+				Treść
+			</th>
+			<th class="text-center">
+				Kategoria
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+			@{
+				foreach (var reportProblems in Model.ReportProblems)
+				{	
+					<tr>
+						<td>
+							@reportProblems.nickname
+						</td>
+						<td>
+							@reportProblems.content
+						</td>
+						<td>
+							@reportProblems.category
+						</td>
+					</tr>
+				}
+			}
+	</tbody>
+</table>

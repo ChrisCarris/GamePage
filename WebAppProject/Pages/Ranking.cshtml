@@ -1,0 +1,99 @@
+﻿@page
+@model WebAppProject.Pages.RankingModel
+@{
+}
+
+
+<h2 class="text-center">Top 10 najlepszych graczy na serwerze</h2>
+<br />
+<table class="table table-bordered">
+	<thead class="table-primary">
+		<tr>
+			<th class="text-center">
+				Nick
+			</th>
+			<th class="text-center">
+				Królestwo
+			</th>
+			<th class="text-center">
+				Lvl
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		@{
+			int[] characterLvl = new int[10];
+			string[] characterNickname = new string[10];
+			string[] characterKingdom = new string[10];
+			for (int i = 0; i <= 9; i++)
+			{
+				characterLvl[i] = 0;
+				characterNickname[i] = "Brak graczy na tej pozycji";
+				characterKingdom[i] = "";
+
+			}
+
+			foreach (var user in Model.UserInfo)
+			{
+				int tempCharacterLvl = 0;
+				string tempCharacterNickname = "";
+				string tempCharacterKingdom = "";
+				if (user.Character_1_Lvl > tempCharacterLvl)
+				{
+					tempCharacterLvl = user.Character_1_Lvl;
+					tempCharacterNickname = user.Character_1_Nickname;
+					tempCharacterKingdom = user.Character_1_Kingdom;
+				}
+				if (user.Character_2_Lvl > tempCharacterLvl)
+				{
+					tempCharacterLvl = user.Character_2_Lvl;
+					tempCharacterNickname = user.Character_2_Nickname;
+					tempCharacterKingdom = user.Character_2_Kingdom;
+				}
+				if (user.Character_3_Lvl > tempCharacterLvl)
+				{
+					tempCharacterLvl = user.Character_3_Lvl;
+					tempCharacterNickname = user.Character_3_Nickname;
+					tempCharacterKingdom = user.Character_3_Kingdom;
+				}
+				if (user.Character_4_Lvl > tempCharacterLvl)
+				{
+					tempCharacterLvl = user.Character_4_Lvl;
+					tempCharacterNickname = user.Character_4_Nickname;
+					tempCharacterKingdom = user.Character_4_Kingdom;
+				}
+
+				for (int i = 0; i <= 9; i++)
+				{
+					if (tempCharacterLvl > characterLvl[i] && tempCharacterNickname != characterNickname[i])
+					{
+						for (int j = 9; j > i; j--)
+						{
+							characterLvl[j] = characterLvl[j - 1];
+							characterNickname[j] = characterNickname[j - 1];
+							characterKingdom[j] = characterKingdom[j - 1];
+						}
+						characterLvl[i] = tempCharacterLvl;
+						characterNickname[i] = tempCharacterNickname;
+						characterKingdom[i] = tempCharacterKingdom;
+						break;
+					}
+				}
+			}
+			for (int i = 0; i < 9; i++)
+			{
+				<tr>
+					<td>
+						@characterNickname[i]
+					</td>
+					<td>
+						@characterKingdom[i]
+					</td>
+					<td>
+						@characterLvl[i]
+					</td>
+				</tr>
+			}	
+		}
+	</tbody>
+</table>

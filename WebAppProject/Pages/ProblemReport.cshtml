@@ -1,0 +1,37 @@
+﻿@page
+@model WebAppProject.Pages.ProblemReportModel
+@{
+    ViewData["Title"] = "Zgłoś problem";
+}
+<div class="messages mt-3 mb-2 col-8" style="margin: auto;width: 75%;">
+    <form name="report" method="post">
+        <div>
+            <label for="report_content" class="required">Treść zgłoszenia</label>
+            <textarea id="content" name="content" required="required" class="form-control"></textarea>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <label class="required" for="report_category">Kategoria</label>
+                    <select id="category" name="category" class="form-control">
+                            <option value="Account_Error">Błąd związany z Kontem</option>
+                            <option value="Game_Error">Błąd w Grze</option>
+                            <option value="Player_Report">Zgłoszenie Gracza</option>
+                            <option value="Web_Error">Błąd na Stronie</option>
+                            <option value="Opinions">Uwagi i opinie</option>
+                            <option value="Suggestion">Propozycje</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div>
+                    <label for="report_player">Nazwa postaci</label>
+                    <input type="text" id="nickname" name="nickname" class="form-control">
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="form-group"><button type="submit" id="submit" name="submit" class="btn btn-primary float-right btn">Wyślij</button></div>
+    </form>
+</div>

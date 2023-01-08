@@ -1,0 +1,126 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Mój profil";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+<div>
+    <h2>
+        Informacje o koncie
+    </h2>
+</div>
+<div>
+    <div class="float-container">
+        <div class="float-child col-3 border-top border-bottom rounded-left">
+        <div>Adres E-mail:</div>
+        <div>Data rejestracji:</div>
+        <div>Ostatnie logowanie do gry:</div>
+        <div>Czas spędzony w grze:</div>
+        </div>
+        <div class="float-child col-9 border-top border-bottom rounded-right">
+        <div>@Model.UserInfo.Email</div>
+        <div>@Model.UserInfo.RegisterDate</div>
+        <div>@Model.UserInfo.LastLogin</div>
+        <div>@Model.UserInfo.InGameTime</div>
+        </div>
+    </div>
+    <br />
+    <h3>Informacje o bohaterach</h3>
+    <div>
+        <div class="row">
+            <div class="col-5 border-top border-bottom rounded-top rounded-bottom" style="margin: 20px">
+                 <div class="col-8">
+                    @{
+                        if (@Model.UserInfo.Character_1_Nickname != "")
+                        {
+                                <div class="text-center">
+                                    <strong>@Model.UserInfo.Character_1_Nickname</strong>
+                                </div>
+                                <ul>
+                                    <li> Lvl: @Model.UserInfo.Character_1_Lvl</li>
+                                    <li> Klasa: @Model.UserInfo.Character_1_Class</li>
+                                    <li> Czas gry: @Model.UserInfo.Character_1_InGameTime [hh:mm]</li>
+                                    <li> Płeć: @Model.UserInfo.Character_1_Sex</li>
+                                </ul>
+                        }
+                        else
+                        {
+                            <h6 style="padding-top: 40px; padding-bottom: 20px">Brak postaci w tym slocie!</h6>
+                        }
+
+                    }
+                </div>
+            </div>
+            <div class="col-5 border-top border-bottom rounded-top rounded-bottom" style="margin: 20px">
+                 <div class="col-8">
+                    @{
+                        if (@Model.UserInfo.Character_2_Nickname != "")
+                        {
+                            <div class="text-center">
+                                <strong>@Model.UserInfo.Character_2_Nickname</strong>
+                            </div>
+                            <ul>
+                                <li> Lvl: @Model.UserInfo.Character_2_Lvl</li>
+                                <li> Klasa: @Model.UserInfo.Character_2_Class</li>
+                                        <li> Czas gry: @Model.UserInfo.Character_2_InGameTime [hh:mm]</li>
+                                <li> Płeć: @Model.UserInfo.Character_2_Sex</li>
+                            </ul>
+                        }
+                        else
+                        {
+                            <h6 style="padding-top: 40px; padding-bottom: 20px">Brak postaci w tym slocie!</h6>
+                        }
+
+                    }
+                </div>
+            </div>
+            <div class="col-5 border-top border-bottom rounded-top rounded-bottom" style="margin: 20px">
+                 <div class="col-8">
+                    @{
+                        if (@Model.UserInfo.Character_3_Nickname != "")
+                        {
+                            <div class="text-center">
+                                <strong>@Model.UserInfo.Character_3_Nickname</strong>
+                            </div>
+                            <ul>
+                                <li> Lvl: @Model.UserInfo.Character_3_Lvl</li>
+                                <li> Klasa: @Model.UserInfo.Character_3_Class</li>
+                                        <li> Czas gry: @Model.UserInfo.Character_3_InGameTime [hh:mm]</li>
+                                <li> Płeć: @Model.UserInfo.Character_3_Sex</li>
+                            </ul>
+                        }
+                        else
+                        {
+                            <h6 style="padding-top: 40px; padding-bottom: 20px">Brak postaci w tym slocie!</h6>
+                        }
+
+                    }
+                </div>
+            </div>
+            <div class="col-5 border-top border-bottom rounded-top rounded-bottom" style="margin: 20px">
+                 <div class="col-8">
+                    @{
+                        if (@Model.UserInfo.Character_4_Nickname != "")
+                        {
+                            <div class="text-center">
+                                <strong>@Model.UserInfo.Character_4_Nickname</strong>
+                            </div>
+                            <ul>
+                                <li> Lvl: @Model.UserInfo.Character_4_Lvl</li>
+                                <li> Klasa: @Model.UserInfo.Character_4_Class</li>
+                                <li> Czas gry: @Model.UserInfo.Character_4_InGameTime [hh:mm]</li>
+                                <li> Płeć: @Model.UserInfo.Character_4_Sex</li>
+                            </ul>
+                        }
+                        else
+                        {
+                            <h6 style="padding-top: 40px; padding-bottom: 20px">Brak postaci w tym slocie!</h6>
+                        }
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
